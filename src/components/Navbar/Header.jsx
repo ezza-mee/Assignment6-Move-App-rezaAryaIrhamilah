@@ -1,18 +1,23 @@
+import PropTypes from 'prop-types';
+import '../../index.css';
 import Search from './Search';
 
-function Header() {
+const Header = ({ setSearchMovie }) => {
 	return (
-		<header>
-			<nav className="bg-orange-600 w-full h-14 flex">
-				<div className="w-5/6 h-14 ml-10 flex justify-start items-center font-bold">
-					<h1 className="text-white ml-10">FinProH8</h1>
-				</div>
-				<div className="w-80 h-1 flex justify-center ml-10">
-					<Search />
-				</div>
-			</nav>
+		<header className="bg-orange-500 h-16 shadow-md text-white flex">
+			<div className="w-5/6 flex justify-start items-center">
+				<h1 className="text-3xl font-bold ml-8">Movie App</h1>
+			</div>
+			<div className="w-2/6 flex justify-center items-center">
+				<Search setSearchMovie={setSearchMovie} />
+			</div>
 		</header>
 	);
-}
+};
+
+// Validasi props dengan propTypes
+Header.propTypes = {
+	setSearchMovie: PropTypes.func.isRequired,
+};
 
 export default Header;
